@@ -56,7 +56,7 @@ Feel free to reach out via [**LinkedIn**](https://www.linkedin.com/in/saran8916)
 
 ![SaranTeja's GitHub Stats](https://github-readme-stats.vercel.app/api?username=nerdboss-stm&show_icons=true&theme=radical)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SaranTeja&layout=compact&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=radical)
 
 ---
 
