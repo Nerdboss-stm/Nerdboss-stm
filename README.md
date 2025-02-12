@@ -4,8 +4,7 @@
 - 💕 Eager to **collaborate** on innovative, data-driven projects, especially those blending **ML**, **Cloud Integration**, and **Real-Time Data Analysis**.
 - 📩 Connect with me on [LinkedIn](https://www.linkedin.com/in/saran8916) or shoot me an email at **smallel4@cougarnet.uh.edu**
 - 😄 Pronouns: **He/Him**
-- ⚡ Fun fact: I engineered an IoT-powered solar system that **cut power loss by 20%** ☀️✨
-
+  
 <!---
 SaranTeja/SaranTeja is a ✨ special ✨ repository because its README.md (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
