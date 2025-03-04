@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @SaranTeja
-- 👀 I’m passionate about **Data Science**, **Machine Learning**, and **Cloud Computing** – always excited to turn data into actionable insights!
+- 👀 I’m passionate about **Data Science**, **Machine Learning**, and **Cloud Computing** – always excited to turn data into actionable insights!!
 - 🌱 Currently diving deep into **Big Data technologies** like Apache Kafka and refining my **Machine Learning** skills.
 - 💕 Eager to **collaborate** on innovative, data-driven projects, especially those blending **ML**, **Cloud Integration**, and **Real-Time Data Analysis**.
 - 📩 Connect with me on [LinkedIn](https://www.linkedin.com/in/saran8916) or shoot me an email at **smallel4@cougarnet.uh.edu**
