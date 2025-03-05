@@ -10,7 +10,7 @@ SaranTeja/SaranTeja is a ✨ special ✨ repository because its README.md (this 
 You can click the Preview link to take a look at your changes.
 --->
 
-# Hey 👋, I'm **Saran Teja**! 
+# Hey 👋, I'm **Saran Teja**!! 
 
 Welcome to my corner of GitHub! 🌟
 
