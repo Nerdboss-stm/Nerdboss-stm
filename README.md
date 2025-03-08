@@ -61,7 +61,7 @@ Feel free to reach out via [**LinkedIn**](https://www.linkedin.com/in/saran8916)
 
 ## 🛠️ **Featured Projects:**
 
-- 📈 **[Real-time Analysis of Portuguese Election Results](#)**  
+- 📈 **[Real-time Analysis of Portuguesee Election Results](#)**  
 - 🧐 **[Estimation of Periodontal Bone Loss Using SVM and RF](#)**  
 - ☀️ **[IoT Implementation of Smart Solar Power Management](#)**  
 
