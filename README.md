@@ -1,16 +1,17 @@
 - 👋 Hi, I’m @SaranTeja
 - 👀 I’m passionate about **Data Science**, **Machine Learning**, and **Cloud Computing** – always excited to turn data into actionable insights!!!
 - 🌱 Currently diving deep into **Big Data technologies** like Apache Kafka and refining my **Machine Learning** skills.
+- 🚀 Leading an end-to-end AI system in healthcare: [**HERA-Healthcare-AI**](https://github.com/nerdboss-stm/hera-healthcare-ai) – a full-stack project uniting Data Engineering, ML, and Generative AI!
 - 💕 Eager to **collaborate** on innovative, data-driven projects, especially those blending **ML**, **Cloud Integration**, and **Real-Time Data Analysis**.
 - 📩 Connect with me on [LinkedIn](https://www.linkedin.com/in/saran8916) or shoot me an email at **smallel4@cougarnet.uh.edu**
 - 😄 Pronouns: **He/Him**
-  
+
 <!----
 SaranTeja/SaranTeja is a ✨ special ✨ repository because its README.md (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes. 
 ---->
 
-# Hey 👋, I'm **Saran Teja**!! 
+# Hey 👋, I'm **Saran Teja**!!
 
 Welcome to my corner of GitHub! 🌟
 
@@ -22,12 +23,15 @@ I love using data to solve real-world problems and build impactful solutions. �
 
 ## 🌟 **What I'm Up To:**
 
-- 🔬 **Currently Working On:** Real-time election data analysis using cutting-edge **Machine Learning** techniques.
+- 🔬 **Currently Leading:** [**HERA-Healthcare-AI**](https://github.com/nerdboss-stm/hera-healthcare-ai)  
+   A full-stack, real-time healthcare monitoring system using:
+   - Kafka, Spark, Airflow, and PostgreSQL for Data Engineering  
+   - LSTM, BioGPT & ClinicalBERT for ML and LLM integration  
+   - FastAPI + Streamlit frontend with CI/CD & free web hosting  
+   - Actively updated daily with GitHub logs, notebooks, and deployment artifacts
 - 🤝 **Open to Collaborate On:** Data visualization projects, predictive modeling, and any exciting **data-driven** ideas!
-- 🌱 **Learning:** Advanced **hyperparameter tuning**, **feature selection**, and **Big Data** tech like Apache Kafka.
-- 👨‍💻 **My Projects:** Check them out right here on my **GitHub**!
-- 🎨 **Publications:** Dive into my research on **Parkinson's Disease classification** using Deep Residual CNN 📈
-- 💬 **Ask Me About:** Anything related to **data science**, **cloud computing**, or **IoT** – I’m here to help!
+- 🌱 **Learning:** Advanced **hyperparameter tuning**, **feature engineering**, and **streaming architecture**
+- 💬 **Ask Me About:** Anything related to **data science**, **cloud computing**, **generative AI**, or **IoT**
 
 ---
 
@@ -57,13 +61,14 @@ Feel free to reach out via [**LinkedIn**](https://www.linkedin.com/in/saran8916)
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=radical)
 
-----
+---
 
 ## 🛠️ **Featured Projects:**
 
-- 📈 **[Real-time Analysis of Portuguesee Election Results](#)**  
+- 🏥 **[HERA – Full-stack AI in Healthcare](https://github.com/nerdboss-stm/hera-healthcare-ai)**  
+   Real-time vitals ingestion, predictive ML, and LLM-powered summarization in a full-stack AI system  
+- 📈 **[Real-time Analysis of Portuguese Election Results](#)**  
 - 🧐 **[Estimation of Periodontal Bone Loss Using SVM and RF](#)**  
 - ☀️ **[IoT Implementation of Smart Solar Power Management](#)**  
 
-Let's build something amazing together! 🚀
-
+Let’s build something amazing together! 🚀
