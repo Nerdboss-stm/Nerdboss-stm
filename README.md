@@ -23,7 +23,7 @@
 ## 🛠️ Tech Stack & Tools
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,java,tensorflow,pytorch,kafka,spark,airflow,postgresql,mysql,aws,azure,docker,fastapi,flask,streamlit,html,css,js,git,github" />
+  <img src="https://skillicons.dev/icons?i=python,tensorflow,pytorch,kafka,spark,airflow,postgresql,mysql,aws,azure,docker,fastapi,flask,streamlit,html,css,js,git,github" />
 </p>
 
 <p align="center">
