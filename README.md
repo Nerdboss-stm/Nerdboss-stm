@@ -50,10 +50,10 @@
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=nerdboss-stm&show_icons=true&theme=radical&rank_icon=github&hide_border=true&include_all_commits=true&count_private=true" width="49%"/>
+<img src="https://github-readme-stats-sigma-five.vercel.app/api?username=nerdboss-stm&show_icons=true&theme=radical&rank_icon=github&hide_border=true&include_all_commits=true&count_private=true" width="49%"/>
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=radical&hide_border=true&langs_count=8" width="49%"/>
 <img src="https://streak-stats.demolab.com?user=nerdboss-stm&theme=radical&hide_border=true" width="99%"/>
-<img src="https://github-readme-activity-graph.cyclic.app/graph?username=nerdboss-stm&theme=radical&hide_border=true&area=true" width="100%"/>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=nerdboss-stm&theme=radical&hide_border=true&area=true" width="100%"/>
 
 </div>
 
