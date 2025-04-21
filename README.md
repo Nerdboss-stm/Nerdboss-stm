@@ -67,6 +67,8 @@ Feel free to reach out via [**LinkedIn**](https://www.linkedin.com/in/saran8916)
 
 </div>
 
+<img src="https://github-readme-activity-graph.cyclic.app/graph?username=nerdboss-stm&theme=radical&hide_border=true&area=true" width="100%"/>
+
 
 ---
 
