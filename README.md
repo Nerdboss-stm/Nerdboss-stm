@@ -55,11 +55,18 @@ Feel free to reach out via [**LinkedIn**](https://www.linkedin.com/in/saran8916)
 
 ---
 
-## 📊 **GitHub Stats:**
+## 📊 GitHub Stats & Activity
 
-![SaranTeja's GitHub Stats](https://github-readme-stats.vercel.app/api?username=nerdboss-stm&show_icons=true&theme=radical)
+<div align="center">
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=radical)
+<img src="https://github-readme-stats.vercel.app/api?username=nerdboss-stm&show_icons=true&theme=radical&rank_icon=github&hide_border=true&include_all_commits=true&count_private=true" width="49%"/>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=radical&hide_border=true&langs_count=8" width="49%"/>
+
+<img src="https://streak-stats.demolab.com?user=nerdboss-stm&theme=radical&hide_border=true" width="99%"/>
+
+</div>
+
 
 ---
 
