@@ -90,8 +90,15 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/nerdboss-stm/nerdboss-stm/blob/main/resume.pdf" target="_blank">
+    <img alt="Resume" src="https://img.shields.io/badge/Resume-View-informational?style=for-the-badge&logo=adobeacrobatreader&logoColor=white&color=FF6347">
+  </a>
+</p>
+
+<p align="center">
   <img src="https://komarev.com/ghpvc/?username=nerdboss-stm&label=Profile+Views&color=brightgreen" alt="profile views" />
 </p>
+
 
 ---
 
