@@ -2,13 +2,19 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # every 12 hours
+    - cron: "0 */12 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Generate Snake Game from GitHub Contribution Grid
         uses: Platane/snk@v3
         with:
