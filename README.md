@@ -406,37 +406,73 @@ A runner with resting HR 52 showing HR 85 is **more concerning** than a sedentar
 
 ## Tech Stack
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│  INGESTION          Kafka · Spark Structured Streaming · CDC            │
-├─────────────────────────────────────────────────────────────────────────┤
-│  PROCESSING         PySpark · Delta Lake MERGE · Spark Batch            │
-├─────────────────────────────────────────────────────────────────────────┤
-│  STORAGE            Delta Lake · S3 (MinIO) · Azure Blob (Azurite)     │
-│                     DynamoDB · Cosmos DB                                │
-├─────────────────────────────────────────────────────────────────────────┤
-│  MODELING           Data Vault 2.0 · Star Schema · Snowflake Schema    │
-│                     SCD Types 0/1/2 · Medallion Architecture            │
-├─────────────────────────────────────────────────────────────────────────┤
-│  ORCHESTRATION      Apache Airflow · GitHub Actions · CI/CD            │
-├─────────────────────────────────────────────────────────────────────────┤
-│  DATA QUALITY       Great Expectations · Data Contracts · HIPAA Audit  │
-├─────────────────────────────────────────────────────────────────────────┤
-│  CLOUD              AWS (S3, Redshift, EC2, Lambda, Glue, DynamoDB)    │
-│                     Azure (Blob, Databricks, Functions, Event Hubs,    │
-│                     Cosmos DB)                                          │
-├─────────────────────────────────────────────────────────────────────────┤
-│  SERVING            Metabase · Apache Superset · Tableau · Power BI    │
-├─────────────────────────────────────────────────────────────────────────┤
-│  ML & AI            TensorFlow · PyTorch · BioGPT · LSTM · scikit     │
-├─────────────────────────────────────────────────────────────────────────┤
-│  LANGUAGES          Python · SQL · C++ · JavaScript                    │
-├─────────────────────────────────────────────────────────────────────────┤
-│  INFRA              Docker · Docker Compose · Terraform · Git          │
-├─────────────────────────────────────────────────────────────────────────┤
-│  APIs               FastAPI · Flask · Streamlit                        │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+**Streaming & Ingestion**&nbsp;&nbsp;
+![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
+![Spark Streaming](https://img.shields.io/badge/Spark_Structured_Streaming-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
+![CDC](https://img.shields.io/badge/CDC-444?style=flat-square)
+
+**Batch Processing**&nbsp;&nbsp;
+![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
+![Delta Lake](https://img.shields.io/badge/Delta_Lake-003366?style=flat-square&logo=delta&logoColor=white)
+
+**Orchestration**&nbsp;&nbsp;
+![Airflow](https://img.shields.io/badge/Apache_Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+
+**Data Modeling**&nbsp;&nbsp;
+![Data Vault](https://img.shields.io/badge/Data_Vault_2.0-0969da?style=flat-square)
+![Star Schema](https://img.shields.io/badge/Star_Schema-0969da?style=flat-square)
+![Snowflake Schema](https://img.shields.io/badge/Snowflake_Schema-0969da?style=flat-square)
+![SCD](https://img.shields.io/badge/SCD_0%2F1%2F2-0969da?style=flat-square)
+![Medallion](https://img.shields.io/badge/Medallion_Architecture-0969da?style=flat-square)
+
+**Data Quality**&nbsp;&nbsp;
+![Great Expectations](https://img.shields.io/badge/Great_Expectations-FF6D00?style=flat-square)
+![Data Contracts](https://img.shields.io/badge/Data_Contracts-444?style=flat-square)
+![HIPAA](https://img.shields.io/badge/HIPAA_Compliance-444?style=flat-square)
+
+**Cloud**&nbsp;&nbsp;
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
+![S3](https://img.shields.io/badge/S3-569A31?style=flat-square&logo=amazons3&logoColor=white)
+![Redshift](https://img.shields.io/badge/Redshift-8C4FFF?style=flat-square&logo=amazonredshift&logoColor=white)
+![DynamoDB](https://img.shields.io/badge/DynamoDB-4053D6?style=flat-square&logo=amazondynamodb&logoColor=white)
+![Lambda](https://img.shields.io/badge/Lambda-FF9900?style=flat-square&logo=awslambda&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat-square&logo=databricks&logoColor=white)
+![Cosmos DB](https://img.shields.io/badge/Cosmos_DB-0078D4?style=flat-square)
+
+**Storage**&nbsp;&nbsp;
+![Delta Lake](https://img.shields.io/badge/Delta_Lake-003366?style=flat-square&logo=delta&logoColor=white)
+![MinIO](https://img.shields.io/badge/MinIO-C72E49?style=flat-square&logo=minio&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+
+**Serving & BI**&nbsp;&nbsp;
+![Metabase](https://img.shields.io/badge/Metabase-509EE3?style=flat-square&logo=metabase&logoColor=white)
+![Superset](https://img.shields.io/badge/Apache_Superset-20A6C9?style=flat-square&logo=apachesuperset&logoColor=white)
+![Tableau](https://img.shields.io/badge/Tableau-E97627?style=flat-square&logo=tableau&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=333)
+
+**ML & AI**&nbsp;&nbsp;
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![BioGPT](https://img.shields.io/badge/BioGPT-444?style=flat-square)
+![LSTM](https://img.shields.io/badge/LSTM-444?style=flat-square)
+
+**Languages**&nbsp;&nbsp;
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=333)
+
+**Infrastructure & APIs**&nbsp;&nbsp;
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000?style=flat-square&logo=flask&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 
 ---
 
