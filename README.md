@@ -20,7 +20,7 @@ I build end-to-end data platforms — from Kafka ingestion to dimensional models
 
 Choosing the right pattern matters more than knowing every tool.
 
-Currently **Software Engineer at Url Systems Inc** · Previously University of Houston.
+Currently **Data Engineer at Url Systems Inc** · Previously University of Houston.
 
 ---
 
