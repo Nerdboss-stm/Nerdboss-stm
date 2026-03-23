@@ -16,21 +16,21 @@
 
 M.S. Data Science, **University of Houston** (4.0 GPA) · B.Tech CS · **3 published papers** (IEEE, ResearchGate) · **AWS Solutions Architect** certified.
 
-I build end-to-end data platforms — from Kafka ingestion to dimensional models to serving layers. The two flagship projects below use **deliberately different architectures** because their data behaves differently. Lambda for stateful order lifecycles. Kappa for append-only sensor streams. Data Vault where schemas conflict. Star where dimensions are flat. Snowflake where hierarchies run deep.
+I build end-to-end data platforms — from Kafka ingestion to dimensional models to serving layers. The three flagship projects below use **deliberately different architectures** because their data behaves differently. Lambda for stateful order lifecycles. Kappa for append-only sensor streams. Multi-agent pipeline for clinical AI. Data Vault where schemas conflict. Star where dimensions are flat. Snowflake where hierarchies run deep.
 
 Choosing the right pattern matters more than knowing every tool.
 
-Currently **Data Engineer at Url Systems Inc** · Previously University of Houston.
+Currently **Software Engineer at Url Systems Inc** · Previously University of Houston.
 
 ---
 
 ## Architecture Portfolio
 
-Two production-grade data platforms. Same stack (Kafka, Spark, Delta Lake, Airflow). **Different architectures, different modeling, different cloud providers** — each chosen for a reason.
+Three production-grade platforms. Different architectures, different modeling, different cloud providers — each chosen for a reason.
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
 ### 🍔 GhostKitchen
 
@@ -45,7 +45,7 @@ Orders from Uber Eats, DoorDash, OwnApp
 Kitchen IoT · Delivery GPS · Menu CDC
 
 </td>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
 ### 🫀 PulseTrack
 
@@ -60,34 +60,43 @@ Wearable telemetry · EHR FHIR · Pharmacy CDC
 HIPAA-compliant · Personal baseline anomaly detection
 
 </td>
+<td width="33%" valign="top">
+
+### 🧬 HERA v4
+
+[![Repo](https://img.shields.io/badge/repo-hera--healthcare--ai-181717?style=flat-square&logo=github)](https://github.com/Nerdboss-stm/hera-healthcare-ai)
+![Pipeline](https://img.shields.io/badge/9--Stage_Pipeline-0969da?style=flat-square)
+![AWS](https://img.shields.io/badge/AWS_App_Runner-FF9900?style=flat-square)
+![Tests](https://img.shields.io/badge/104_tests-brightgreen?style=flat-square)
+
+**Healthcare Reasoning & Analytics Platform**
+
+Multi-agent clinical AI + data engineering  
+23 FastAPI endpoints · 7 DE systems · 9-stage pipeline  
+Live on AWS · Prometheus + Grafana · FHIR R4
+
+</td>
 </tr>
 </table>
 
 ### Why different architectures?
 
 ```
-                    GhostKitchen                           PulseTrack
-                    ──────────────                         ──────────────
-  Data nature       Stateful (order lifecycle)             Append-only (sensor readings)
-  Architecture      Lambda (batch + streaming)             Kappa (streaming only)
-  Why?              Orders get cancelled/refunded →        Heart rate of 72 bpm doesn't
-                    need batch recomputation for           get "corrected" — one pipeline
-                    exact revenue numbers                  handles everything
+                    GhostKitchen                   PulseTrack                     HERA v4
+                    ──────────────                 ──────────────                 ──────────────
+  Data nature       Stateful (order lifecycle)     Append-only (sensor readings)  Multi-stage AI pipeline
+  Architecture      Lambda (batch + streaming)     Kappa (streaming only)         9-stage Command Center
+  Why?              Orders get cancelled/refunded  Heart rate of 72 bpm doesn't   Clinical reasoning needs
+                    → need batch recomputation     get "corrected" — one          sequential stages: NER →
+                    for exact revenue numbers      pipeline handles everything    agents → ML → RAG → eval
 
-  Silver model      Data Vault 2.0                         Normalized + metric explosion
-  Why?              3 platforms define "customer"           Single-source metrics,
-                    and "order" differently →               consistent schema →
-                    hubs unify, satellites preserve         normalize and explode
+  Silver model      Data Vault 2.0                 Normalized + metric explosion  Star schema warehouse
+  Gold model        Star Schema                    Snowflake Schema               Hourly aggregations
 
-  Gold model        Star Schema                            Snowflake Schema
-  Why?              Dimensions are flat (kitchen,           ICD-10 codes have 3 levels,
-                    brand, zone) → Star is simpler          medications track drug class →
-                    and sufficient                          med → dosage → patient
-
-  Late data         DLQ → nightly reconciliation           Same pipeline, no DLQ
-  Airflow role      Conductor (orchestrates batch)         Janitor (maintenance only)
-  Cloud             AWS (S3, Redshift, DynamoDB)           Azure (Blob, Cosmos DB, Functions)
-  BI                Metabase                               Apache Superset
+  Late data         DLQ → nightly reconciliation   Same pipeline, no DLQ          DLQ in event streaming
+  Airflow role      Conductor (orchestrates batch)  Janitor (maintenance only)    Custom 16-task ETL DAG
+  Cloud             AWS (S3, Redshift, DynamoDB)   Azure (Blob, Cosmos DB)        AWS App Runner + ECR
+  Serving           Metabase                       Apache Superset                Grafana + Prometheus
 ```
 
 ---
@@ -393,11 +402,163 @@ A runner with resting HR 52 showing HR 85 is **more concerning** than a sedentar
 
 ---
 
+### HERA v4 — Deep Dive
+
+[![CI/CD](https://github.com/Nerdboss-stm/hera-healthcare-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/Nerdboss-stm/hera-healthcare-ai/actions)
+[![Repo](https://img.shields.io/badge/GitHub-hera--healthcare--ai-181717?style=flat-square&logo=github)](https://github.com/Nerdboss-stm/hera-healthcare-ai)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-AWS_App_Runner-FF9900?style=flat-square)](https://3wihdymitc.us-east-1.awsapprunner.com)
+![Tests](https://img.shields.io/badge/104_tests_passing-brightgreen?style=flat-square)
+![Endpoints](https://img.shields.io/badge/23_REST_endpoints-0969da?style=flat-square)
+
+Production-grade healthcare AI platform in two layers: **AI Layer** (multi-agent clinical reasoning, RAG, biomedical NER, risk prediction, FHIR R4) and **Data Engineering Layer** (event streaming, column-level lineage, data quality, star schema warehouse, ETL, CDC, data catalog). Both unified through a **Command Center** that runs all 9 stages as a single pipeline per patient encounter. Deployed on **AWS App Runner** via GitHub Actions CI/CD.
+
+<details>
+<summary><b>9-stage Command Center pipeline</b></summary>
+<br/>
+
+```mermaid
+flowchart TD
+    INPUT["Patient Vitals + Clinical Notes + FHIR Bundle"]
+    INPUT --> S1["Stage 1: NER Extraction\n33 meds · 28 conditions · 25 procedures"]
+    S1 --> S2["Stage 2: Knowledge Graph\nNetworkX DiGraph · 3 edge types\n20 treatment · 5 contraindication · 9 diagnostic"]
+    S1 --> S3
+    S2 --> S3["Stage 3: Multi-Agent Reasoning"]
+
+    subgraph AGENTS["Three Agents — Sequential"]
+        T["Triage Agent\nESI v4 · 6 vital thresholds"]
+        D["Diagnostic Agent\nICD-10 · 6 complaint categories"]
+        TR["Treatment Agent\n8 protocols · drug interactions\nallergy cross-reference"]
+        T --> D --> TR
+    end
+
+    S3 --> AGENTS
+    AGENTS --> S4["Stage 4: Risk Prediction\nRandom Forest + SHAP\n9 features · explainable"]
+    AGENTS --> S5["Stage 5: RAG Retrieval\nFAISS + MiniLM-L6-v2\n15 curated guidelines"]
+    S5 --> S6["Stage 6: Clinical Summarization\nT5 Transformer · beam search\nauto-fallback to pretrained"]
+    S6 --> S7["Stage 7: Safety Evaluation\n4-axis LLM-as-Judge\nfactual · hallucination · accuracy · safety"]
+    S7 -- "score < threshold" --> S6
+    S7 --> S8["Stage 8: FHIR R4 Export\nPatient · Observation · RiskAssessment\nLOINC-coded vitals"]
+    S4 --> S9
+    S8 --> S9["Stage 9: Data Engineering\n7 integrated systems"]
+```
+
+One `POST /api/command-center` runs all 9 stages per patient encounter. No manual orchestration. Stage 7 (Safety Evaluation) has a **feedback loop** — if the score is below threshold, it triggers re-summarization with RAG context injection.
+
+**Consensus score:** `0.3 × risk + 0.4 × confidence + 0.3 × evidence_grade`
+
+</details>
+
+<details>
+<summary><b>Multi-agent clinical reasoning — why agents, not a monolithic LLM</b></summary>
+<br/>
+
+Clinical reasoning is multi-step. A single LLM call can't provide the auditability, separation of concerns, and protocol adherence required in healthcare.
+
+| Agent | Input | Output | Method |
+|-------|-------|--------|--------|
+| **Triage (ESI v4)** | Vitals + complaint | ESI level 1–5 | 6 vital thresholds × 4 levels + high-acuity keywords + resource estimation |
+| **Diagnostic (ICD-10)** | Triage + NER entities | Differential diagnoses with probabilities | Evidence overlap − rule-out penalty + acuity boost + age factor |
+| **Treatment** | Diagnosis + patient history | Treatment plan | 8 protocols by ICD-10 + drug interaction checking (5 pairs) + allergy cross-reference |
+
+The orchestrator chains all three and records a **full audit trail** (JSONB in PostgreSQL). Every decision is traceable.
+
+**Key design decision:** RAG over fine-tuning for medical knowledge. Guidelines change — RAG enables hot-swap without retraining, and citations provide provenance.
+
+</details>
+
+<details>
+<summary><b>Data Engineering layer — 7 systems, zero external dependencies</b></summary>
+<br/>
+
+Each system is ~200–500 lines of focused Python implementing production-faithful patterns:
+
+| System | Lines | What it does |
+|--------|-------|-------------|
+| **Event Streaming** | 422 | Kafka-style with schema registry (5 schemas), MD5 partitioning, consumer groups, DLQ |
+| **Column-Level Lineage** | 506 | DAG tracking 36+ nodes across 8 pipeline stages, `impact_analysis()`, PII flagging |
+| **Data Quality** | 349 | 12 checks across 5 categories (schema, completeness, accuracy, consistency, freshness) |
+| **Star Schema Warehouse** | 394 | `fact_clinical_encounters` (22 cols) + 4 dimensions + hourly aggregation |
+| **ETL Orchestrator** | 437 | 16-task DAG with topological sort, retry, SLA monitoring, upstream failure propagation |
+| **CDC** | 246 | Before/after snapshots, SHA-256 checksums, field-level diffs, event replay |
+| **Data Catalog** | 499 | 12 datasets with PII tracking, freshness SLAs, relevance-scored search |
+
+**Why custom over Airflow/Kafka/dbt?** Zero external dependencies. Production-faithful patterns that run with just `pip install`. Demonstrates understanding of the internals, not just tool configuration.
+
+**ETL DAG execution flow:**
+```
+ingest → validate → extract_entities → build_kg
+                  → run_triage → run_diagnosis → run_treatment
+                  → predict_risk
+                                  run_diagnosis → retrieve_rag → generate_summary → evaluate_safety
+                                                                                          ↓
+export_fhir ← [run_treatment, predict_risk, generate_summary, evaluate_safety]
+    ├── load_warehouse → emit_cdc → update_catalog
+    └── track_lineage → update_catalog
+```
+
+</details>
+
+<details>
+<summary><b>Safety evaluation — LLM-as-Judge over ROUGE</b></summary>
+<br/>
+
+ROUGE can't detect hallucinations or clinically dangerous errors. HERA uses a 4-axis evaluation:
+
+| Axis | Weight | Method |
+|------|--------|--------|
+| Factual consistency | 0.30 | Keyword overlap + 7 contradiction pair detection |
+| Hallucination | 0.25 | Entity precision/recall + fabricated claim detection |
+| Medical accuracy | 0.25 | 157 valid terms + dangerous dosage checks (5 drugs) |
+| Clinical safety | 0.20 | 3 dangerous regex patterns + allergy cross-check |
+
+Overall score = weighted sum. If below threshold → **feedback loop** re-triggers summarization with RAG context.
+
+</details>
+
+<details>
+<summary><b>Infrastructure — deployed, monitored, tested</b></summary>
+<br/>
+
+**Deployment pipeline:**
+```
+Push to main → GitHub Actions CI (lint + 104 tests + Docker build) → ECR → AWS App Runner auto-deploys
+```
+
+**Observability (Prometheus + Grafana):**
+- 17-panel Grafana dashboard (auto-provisioned): System Health, Clinical Risk & Triage, API Performance, Pipeline & Data Engineering
+- Prometheus scrapes `/metrics` every 5s: `hera_requests_total`, `hera_request_failures_total`, `hera_request_latency_seconds`
+- Alert rule: `TooManyHighRisk` fires when `high_risk_predictions > 3` for 30s
+
+**PostgreSQL** (5 tables): `patient_predictions`, `summaries`, `clinical_reasoning_sessions`, `ner_extractions`, `evaluation_reports` — all populated automatically per API call.
+
+**Middleware:** API key auth + rate limiting (30/min anon, 60/min auth) + HIPAA audit trail with trace IDs.
+
+**Cost:** AWS App Runner 1 vCPU, 2GB RAM, auto-scales to 0 → ~$5–7/mo.
+
+</details>
+
+<details>
+<summary><b>Key design decisions</b></summary>
+<br/>
+
+| Decision | Rationale |
+|----------|-----------|
+| Multi-agent over monolithic LLM | Clinical reasoning is multi-step. Agents provide separation of concerns and auditability. |
+| RAG over fine-tuning for knowledge | Medical guidelines change. RAG enables hot-swap without retraining. Citations provide provenance. |
+| FHIR R4 for interoperability | Mandated for US healthcare data exchange (21st Century Cures Act). |
+| Random Forest + SHAP over deep learning | 9 features, binary target. "SpO2 and MAP drove this High Risk" is more valuable than marginal accuracy from a black box. |
+| Column-level over table-level lineage | Field-level provenance for HIPAA compliance and impact analysis. Table-level is too coarse for healthcare governance. |
+| Custom DE systems over Airflow/Kafka/dbt | Demonstrates understanding of internals. Zero dependencies. Production-faithful patterns in ~300 lines each. |
+| Unified Command Center over microservices | One POST runs all 9 stages. Atomic processing. Decompose into microservices at 100K+ patients/day. |
+
+</details>
+
+---
+
 ## Other Projects
 
 | Project | Stack | What it does |
 |---------|-------|-------------|
-| [**HERA — Healthcare AI**](https://github.com/Nerdboss-stm/hera-healthcare-ai) | LSTM · BioGPT · FastAPI · Streamlit · GitHub Actions CI/CD | Full-stack AI system — vitals forecasting + clinical NLP + real-time serving |
 | [**Real-Time Stock Pipeline**](https://github.com/Nerdboss-stm/Real-Time-Stock-Price-Pipeline) | Kafka · Spark · Airflow · S3 · Redshift · Tableau | Streaming stock market data → cloud warehouse → analytics dashboards |
 | [**Quantum Image Processing**](https://github.com/Nerdboss-stm/Quantum-Computing-in-Image-Processing) | Qiskit · Python · Jupyter | Quantum computing approaches to classical image processing problems |
 | [**Financial News Sentiment**](https://github.com/Nerdboss-stm/Financial-News-Sentiment-Classifier) | NLP · Python | Sentiment classification for financial news articles |
