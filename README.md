@@ -651,10 +651,11 @@ Push to main → GitHub Actions CI (lint + 104 tests + Docker build) → ECR →
 
 | Certification | Issuer |
 |--------------|--------|
+| Databricks Data Engineer Associate | Databricks |
 | AWS Certified Solutions Architect | Amazon Web Services |
 | Tableau Desktop Specialist | Tableau / Salesforce |
 | UiPath Automation Developer Associate | UiPath |
-| Technical Support Fundamentals | Google |
+
 
 ---
 
