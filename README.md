@@ -14,7 +14,7 @@
 
 ---
 
-M.S. Data Science, **University of Houston** (4.0 GPA) · B.Tech CS · **3 published papers** (IEEE, ResearchGate) · **AWS Solutions Architect** certified.
+M.S. Data Science, **University of Houston** (4.0 GPA) · B.Tech CS · **3 published papers** (IEEE, ResearchGate) · **Databricks Data Engineer Associate** certified · **AWS Solutions Architect** certified.
 
 I build end-to-end data platforms — from Kafka ingestion to dimensional models to serving layers. The three flagship projects below use **deliberately different architectures** because their data behaves differently. Lambda for stateful order lifecycles. Kappa for append-only sensor streams. Multi-agent pipeline for clinical AI. Data Vault where schemas conflict. Star where dimensions are flat. Snowflake where hierarchies run deep.
 
