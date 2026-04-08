@@ -681,7 +681,7 @@ Push to main → GitHub Actions CI (lint + 104 tests + Docker build) → ECR →
   <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=default&hide_border=true&langs_count=8" width="48%" />
 </p>
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=nerdboss-stm&theme=default&hide_border=true" width="55%" />
+  <img src="https://streak-stats.demolab.com?user=nerdboss-stm&theme=default&hide_border=true&cache_seconds=86400" width="55%" />
 </p>
 
 ---
