@@ -677,8 +677,8 @@ Push to main → GitHub Actions CI (lint + 104 tests + Docker build) → ECR →
 </picture>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=nerdboss-stm&show_icons=true&theme=default&hide_border=true&include_all_commits=true&count_private=true" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=default&hide_border=true&langs_count=8" width="48%" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=nerdboss-stm&show_icons=true&theme=default&hide_border=true&include_all_commits=true&count_private=true" width="48%" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=nerdboss-stm&layout=compact&theme=default&hide_border=true&langs_count=8" width="48%" />
 </p>
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=nerdboss-stm&theme=default&hide_border=true" width="55%" />
